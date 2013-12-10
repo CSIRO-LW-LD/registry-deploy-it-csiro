@@ -32,7 +32,7 @@ chkconfig tomcat7 on
 if ! blkid | grep /dev/xvdf; then
   # No visible attached volume but might not be formatted yet
   # This will just fail on a local vm
-  mkfs -t ext4 /dev/xvdf 
+  mkfs -t ext4 /dev/xvdf || true
 fi
 
 if blkid | grep /dev/xvdf; then
@@ -41,16 +41,12 @@ if blkid | grep /dev/xvdf; then
     echo "/dev/xvdf /mnt ext4 rw 0 0" | tee -a /etc/fstab > /dev/null && mount /mnt  
   fi
   # If it's snapshot the ldregistry areas will exist, otherwise create them
-  if [ ! -d /mnt/opt/ldregistry ]; then
-    mkdir /mnt/opt
-    mkdir /mnt/opt/ldregistry
-    chown tomcat7 /mnt/opt/ldregistry
-  fi
-  if [ ! -d /mnt/varopt/ldregistry ]; then
-    mkdir /mnt/varopt
-    mkdir /mnt/varopt/ldregistry
-    chown tomcat7 /mnt/varopt/ldregistry
-  fi
+  mkdir -p /mnt/opt/ldregistry 
+  chown tomcat7 /mnt/opt/ldregistry
+  
+  mkdir -p /mnt/varopt/ldregistry
+  chown tomcat7 /mnt/varopt/ldregistry
+
   if [ ! -d /opt/ldregistry ]; then
     ln -s /mnt/opt/ldregistry /opt
   fi
