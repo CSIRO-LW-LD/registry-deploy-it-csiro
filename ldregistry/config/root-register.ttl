@@ -21,8 +21,8 @@
     version:currentVersion <>;
     rdfs:label "root"@en;
     dct:description "The root register"@en;
-    reg:owner      <http://example.com/RegistryTesting> ;
-    reg:manager   <http://csiro.au/SimonCox> ;
+    reg:owner      <http://example.com/RegistryTester> ;
+    reg:manager   <http://www.csiro.au/SimonCox> ;
     reg:containedItemClass reg:Register, skos:Collection, skos:ConceptScheme;
     owl:versionInfo 1;
 .
