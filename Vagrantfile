@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "local" do |local|
     local.vm.box = "precise64"
     local.vm.box_url = "http://files.vagrantup.com/precise64.box"
-    local.vm.network :forwarded_port, host: 9080, guest: 80
+    local.vm.network :forwarded_port, host: 1080, guest: 80
     local.vm.provision :shell, :path => "bootstrap.sh"
   end
   

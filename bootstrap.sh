@@ -108,6 +108,9 @@ mvn clean package
 cd target
 cp registry*.war /var/lib/tomcat7/webapps/ROOT.war
 service tomcat7 start
+service tomcat7 stop
+rm -rf /var/opt/ldregistry/*
+service tomcat7 start
 
 if [ $(grep -c -e 'tomcat.*/opt/ldregistry/proxy-conf.sh' /etc/sudoers) -ne 0 ]
 then
