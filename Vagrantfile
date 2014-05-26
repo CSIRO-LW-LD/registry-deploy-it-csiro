@@ -10,8 +10,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "local" do |local|
     local.vm.box = "precise64"
-    local.vm.network :forwarded_port, host: 4567, guest: 80
+    local.vm.box_url = "http://files.vagrantup.com/precise64.box"
+    local.vm.network :forwarded_port, host: 9080, guest: 80
     local.vm.provision :shell, :path => "bootstrap.sh"
+  end
+  
+  config.vm.define "localdocker" do |localdocker|
+    localdocker.vm.box = "raring64"
+    localdocker.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/raring/current/raring-server-cloudimg-amd64-vagrant-disk1.box"
+    localdocker.vm.network :forwarded_port, host: 2080, guest: 80
+    localdocker.vm.network :forwarded_port, host: 2228, guest: 22
   end
 
   config.vm.define "aws" do |awsbox|
