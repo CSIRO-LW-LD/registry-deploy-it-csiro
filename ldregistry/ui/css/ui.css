@@ -1,6 +1,36 @@
 /**
  * UI additions to adapt bootstrap for registry UI. Dave Reynolds, 2013
  */
+@media screen and (min-width: 1200px){
+   .row .space-above {
+      margin-left: 0px;   
+   }
+   .container {
+      width: 1180px;
+   }
+}
+
+div.modal-page-body .row .space-above {
+   margin-left: 30px;
+}
+
+div.modal-page-footer .row {
+   margin-left: 00px;
+}
+
+.row.space-above .blob{
+   max-width: 600px;
+}
+
+.col-md-5 {
+   margin-left: 30px;
+   max-width: 500px;
+}
+
+.blob-inner .row {
+   margin-left: 30px;
+}
+
 
 body {
         background: white url(/ui/img/body_bg_big.png) repeat;

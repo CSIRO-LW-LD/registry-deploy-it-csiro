@@ -6,7 +6,7 @@
         <span title="$user.openid">$user.name</span>
       </td>
       <td>
-        <form class="form-inline" action="/system/security/grant" method="post">
+        <form class="form-inline" action="$root/system/security/grant" method="post">
           <input type="hidden" name="grant" value="$grant" />
           <input type="hidden" name="user" value="$user.openid" />
           #if($uri)
@@ -21,5 +21,5 @@
 </table>
 
 <div class="space-above">
-  <p>Hover over user name to see their OpenID. Click grant to allow that user $grant privileges#if($uri) on $uri#end.</p>
+  <p>Hover over user name to see their user ID. Click grant to allow that user $grant privileges#if($uri) on $uri#end.</p>
 </div>

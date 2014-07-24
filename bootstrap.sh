@@ -4,18 +4,18 @@ set -e
 RELEASE=snapshot/com/github/ukgovld/registry-core/0.0.2-SNAPSHOT/registry-core-0.0.2-20131118.120346-3.war
 
 apt-get update -y
-apt-get install -y curl chkconfig
-apt-get install -y git 
-apt-get install -y maven
+apt-get install -y --no-install-recommends curl sysv-rc-conf
+apt-get install -y --no-install-recommends git 
+apt-get install -y --no-install-recommends maven
 
 # install and configure tomcat
 echo "** Installing java and tomcat"
-apt-get install -y tomcat7 language-pack-en
+apt-get install -y --no-install-recommends tomcat7 language-pack-en
 service tomcat7 stop
 
 # tomcat7 on ubuntu seems hardwired to java-6 so have to dance around this
 # installing java-7 first doesn't work and we end up with failures in tomcat startup
-apt-get install -y openjdk-7-jdk 
+apt-get install -y --no-install-recommends openjdk-7-jdk 
 update-alternatives --set java /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
 unlink /usr/lib/jvm/default-java
 ln -s /usr/lib/jvm/java-1.7.0-openjdk-amd64 /usr/lib/jvm/default-java
@@ -28,7 +28,7 @@ then
   exit 1
 fi
 service tomcat7 start
-chkconfig tomcat7 on
+sysv-rc-conf tomcat7 on
 
 # Configure runtime areas
 if ! blkid | grep /dev/xvdf; then
@@ -79,7 +79,7 @@ fi
 
 # install and configure nginx
 echo "** Installing nginx"
-apt-get install -y nginx
+apt-get install -y --no-install-recommends nginx
 if [ $(grep -c nginx /etc/logrotate.conf) -ne 0 ]
 then
   echo "**   logrotate for nginx already configured"
@@ -92,7 +92,7 @@ cp /vagrant/install/nginx.conf /etc/nginx/sites-available/default
 
 echo "**   starting nginx service ..."
 service nginx restart
-chkconfig nginx on
+sysv-rc-conf nginx on
 
 # Set up configuration area /opt/ldregistry
 echo "** Installing registry application"
