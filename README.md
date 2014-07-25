@@ -1,4 +1,7 @@
-# registry-deploy-poc
+registry-deploy-test
+====================
+
+Test deployment at http://registry.it.csiro.au/
 
 Provides configuration, UI templates and bootstraping for the POC version of the registry. 
 
