@@ -21,11 +21,11 @@ sudo vagrant up --provider=docker
 or
 
 ```
-> sudo ./vagrantup.sh
+sudo ./vagrantup.sh
 ```
 
 for extra debug info run
 
 ```
-> VAGRANT_LOG=debug sudo vagrant up --provider=docker
+VAGRANT_LOG=debug sudo vagrant up --provider=docker
 ```
