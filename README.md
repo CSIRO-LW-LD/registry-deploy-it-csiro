@@ -1,5 +1,5 @@
-registry-deploy-test
-====================
+registry-deploy-it-csiro
+========================
 
 Test deployment at http://registry.it.csiro.au/
 
