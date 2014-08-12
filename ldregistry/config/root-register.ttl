@@ -15,13 +15,13 @@
 
 @prefix reg:  <http://purl.org/linked-data/registry#> .
 
-@base <http://example.org/> .
+@base <http://registry.it.csiro.au/> .
 
 <> a reg:Register;
     version:currentVersion <>;
     rdfs:label "root"@en;
     dct:description "The root register"@en;
-    reg:owner      <http://example.com/RegistryTester> ;
+    reg:owner      <http://example.com/CSIRORegistryTester> ;
     reg:manager   <http://www.csiro.au/SimonCox> ;
     reg:containedItemClass reg:Register, skos:Collection, skos:ConceptScheme;
     owl:versionInfo 1;
