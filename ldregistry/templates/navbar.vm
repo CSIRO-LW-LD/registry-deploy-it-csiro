@@ -6,7 +6,7 @@
       <ul class="nav">
         <li #if($nav=="root")class="active"#end><a class="brand popinfo" href="/$root" data-trigger="hover" data-placement="bottom"
             data-content="Return to the registry home page and the root register.">
-         Simon's Test Registry</a></li>
+         CSIRO Test Registry</a></li>
       </ul>
       <div class="span1"> </div>
       <ul class="nav">
