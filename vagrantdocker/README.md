@@ -10,7 +10,10 @@ Sets up and runs the linked data registry on a host machine (running Ubuntu) usi
 - Docker >1.0 
 - Vagrant >1.6.3
 
+
 ## Instructions
+
+make sure the phusion.key file is owned by root
 
 run
 
@@ -27,5 +30,5 @@ sudo ./vagrantup.sh
 for extra debug info run
 
 ```
-VAGRANT_LOG=debug sudo vagrant up --provider=docker
+sudo VAGRANT_LOG=debug vagrant up --provider=docker
 ```
